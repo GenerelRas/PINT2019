@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, Platform } from "react-native";
 import { Icon } from "react-native-elements";
 import PropTypes from "prop-types";
 
-import Input from "/Users/joachimdemuth/Sportify2/components/Input.js";
-import KnapHvid from "/Users/joachimdemuth/Sportify2/components/KnapHvid.js";
+import Input from "../components/Input.js";
+import KnapHvid from "../components/KnapHvid.js";
 
 export class SignUp3 extends Component {
   static navigationOptions = {
