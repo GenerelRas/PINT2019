@@ -9,7 +9,7 @@ import {
   ScrollView,
   TouchableOpacity
 } from "react-native";
-
+import MapView, { Marker } from "react-native-maps";
 import LogoTitle from "../components/LogoTitle";
 import FooterMenu from "../components/FooterMenu";
 import Knap from "../components/Knap";
@@ -20,9 +20,7 @@ export class Home extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerTitle: () => <LogoTitle />,
-      headerRight: () => (
-        <ProfilePic url="https://picsum.photos/200" onPicPress={komnu} />
-      ),
+      headerRight: () => <ProfilePic url="https://picsum.photos/200" />,
       headerRightContainerStyle: {
         paddingRight: 10
       }
@@ -35,9 +33,20 @@ export class Home extends Component {
         <StatusBar barStyle="light-content" />
 
         <View style={styles.map}>
-          <Image
+          {/* <Image
             source={{ uri: "https://picsum.photos/600" }}
             style={styles.mapImage}
+          /> */}
+          <MapView
+            provider={MapView.PROVIDER_GOOGLE}
+            customMapStyle={generateMapStyle}
+            style={styles.mapImage}
+            initialRegion={{
+              latitude: 55.6598,
+              longitude: 12.591537,
+              latitudeDelta: 0.005,
+              longitudeDelta: 0.005
+            }}
           />
         </View>
         <View style={styles.activities}>
@@ -86,7 +95,7 @@ export class Home extends Component {
   }
 }
 
-const komnu = this.props.navigation.navigate("Profile");
+const generateMapStyle = require("../JSON/GoogleMapsStyling");
 
 export default Home;
 
