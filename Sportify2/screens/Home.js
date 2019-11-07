@@ -47,7 +47,40 @@ export class Home extends Component {
               latitudeDelta: 0.005,
               longitudeDelta: 0.005
             }}
-          />
+            showsUserLocation={true}
+            followsUserLocation={true}
+          >
+            <MapView.Marker
+              coordinate={{ latitude: 55.663025, longitude: 12.593587 }}
+              title={"Soccer"}
+              description={"Soccer"}
+            >
+              <Image
+                source={require("../assets/icons/soccer.png")}
+                style={{ height: 40, width: 40 }}
+              />
+            </MapView.Marker>
+            <MapView.Marker
+              coordinate={{ latitude: 55.662435, longitude: 12.59384 }}
+              title={"Basketball"}
+              description={"Basketball"}
+            >
+              <Image
+                source={require("../assets/icons/basketball.png")}
+                style={{ height: 40, width: 40 }}
+              />
+            </MapView.Marker>
+            <MapView.Marker
+              coordinate={{ latitude: 55.662425, longitude: 12.59318 }}
+              title={"Run"}
+              description={"Run"}
+            >
+              <Image
+                source={require("../assets/icons/run.png")}
+                style={{ height: 40, width: 40 }}
+              />
+            </MapView.Marker>
+          </MapView>
         </View>
         <View style={styles.activities}>
           <Text>Activities close to you</Text>
