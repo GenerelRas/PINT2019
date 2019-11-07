@@ -7,7 +7,7 @@ export default class LogoTitle extends Component {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={require("/Users/joachimdemuth/Sportify2/assets/LogoTitle.png")}
+          source={require("../assets/LogoTitle.png")}
         />
       </View>
     );
