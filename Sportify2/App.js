@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View, StatusBar } from "react-native";
-import { createStackNavigator } from "react-navigation-stack";
+import {
+  createStackNavigator,
+  TransitionPresets
+} from "react-navigation-stack";
 
 import Profile from "./screens/Profile";
 import Home from "./screens/Home";
 import SignUp from "./screens/SignUp";
 import SignUp2 from "./screens/SignUp2";
 import SignUp3 from "./screens/SignUp3";
+import CreateActivity from "./screens/CreateActivity";
 
 import { createAppContainer } from "react-navigation";
 
@@ -22,6 +26,9 @@ class App extends Component {
 
 const AppNavigator = createStackNavigator(
   {
+    CreateActivity: {
+      screen: CreateActivity
+    },
     SignUp3: {
       screen: SignUp3
     },
@@ -32,7 +39,10 @@ const AppNavigator = createStackNavigator(
       screen: SignUp
     },
     Home: {
-      screen: Home
+      screen: Home,
+      navigationOptions: {
+        headerBackTitle: null
+      }
     },
     Profile: {
       screen: Profile
@@ -45,7 +55,6 @@ const AppNavigator = createStackNavigator(
         backgroundColor: "#232d3a",
         borderBottomColor: "#fff1"
       },
-      // headerBackTitle: " ",
       headerRightContainerStyle: {
         paddingRight: 10,
         justifyContent: "center"

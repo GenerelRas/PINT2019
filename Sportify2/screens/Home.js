@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import {
   View,
   Text,
-  Button,
   StatusBar,
   StyleSheet,
   Image,
-  ScrollView,
-  TouchableOpacity
+  ScrollView
 } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import LogoTitle from "../components/LogoTitle";
@@ -15,16 +13,16 @@ import FooterMenu from "../components/FooterMenu";
 import Knap from "../components/Knap";
 import Activity from "../components/Activity";
 import ProfilePic from "../components/ProfilePic";
-
+import MapComp from "../components/MapComp";
+import * as marker from "../JSON/Activities";
 export class Home extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      headerTitle: () => <LogoTitle />,
-      headerRight: () => <ProfilePic url="https://picsum.photos/200" />,
-      headerRightContainerStyle: {
-        paddingRight: 10
-      }
-    };
+  static navigationOptions = {
+    headerTitle: () => <LogoTitle />,
+    headerRight: () => <ProfilePic url="https://picsum.photos/200" />,
+    headerBackTitle: "Home",
+    headerRightContainerStyle: {
+      paddingRight: 10
+    }
   };
 
   render() {
@@ -33,54 +31,7 @@ export class Home extends Component {
         <StatusBar barStyle="light-content" />
 
         <View style={styles.map}>
-          {/* <Image
-            source={{ uri: "https://picsum.photos/600" }}
-            style={styles.mapImage}
-          /> */}
-          <MapView
-            provider={MapView.PROVIDER_GOOGLE}
-            customMapStyle={generateMapStyle}
-            style={styles.mapImage}
-            initialRegion={{
-              latitude: 55.6598,
-              longitude: 12.591537,
-              latitudeDelta: 0.005,
-              longitudeDelta: 0.005
-            }}
-            showsUserLocation={true}
-            followsUserLocation={true}
-          >
-            <MapView.Marker
-              coordinate={{ latitude: 55.663025, longitude: 12.593587 }}
-              title={"Soccer"}
-              description={"Soccer"}
-            >
-              <Image
-                source={require("../assets/icons/soccer.png")}
-                style={{ height: 40, width: 40 }}
-              />
-            </MapView.Marker>
-            <MapView.Marker
-              coordinate={{ latitude: 55.662435, longitude: 12.59384 }}
-              title={"Basketball"}
-              description={"Basketball"}
-            >
-              <Image
-                source={require("../assets/icons/basketball.png")}
-                style={{ height: 40, width: 40 }}
-              />
-            </MapView.Marker>
-            <MapView.Marker
-              coordinate={{ latitude: 55.662425, longitude: 12.59318 }}
-              title={"Run"}
-              description={"Run"}
-            >
-              <Image
-                source={require("../assets/icons/run.png")}
-                style={{ height: 40, width: 40 }}
-              />
-            </MapView.Marker>
-          </MapView>
+          <MapComp height={400} width={410} />
         </View>
         <View style={styles.activities}>
           <Text>Activities close to you</Text>
@@ -115,7 +66,10 @@ export class Home extends Component {
           </ScrollView>
         </View>
         <View style={styles.addAct}>
-          <Knap title="Create activity" />
+          <Knap
+            title="Create activity"
+            onBtnPress={() => this.props.navigation.navigate("CreateActivity")}
+          />
         </View>
         <View style={styles.footer}>
           <FooterMenu
@@ -127,8 +81,6 @@ export class Home extends Component {
     );
   }
 }
-
-const generateMapStyle = require("../JSON/GoogleMapsStyling");
 
 export default Home;
 
@@ -142,10 +94,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  mapImage: {
-    height: 600,
-    width: 600
-  },
+
   activities: {
     flex: 0.5,
     backgroundColor: "#fff",
