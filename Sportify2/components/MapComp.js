@@ -155,6 +155,7 @@ export default class MapComp extends Component {
           location.coords.latitude;
       }
     }
+    console.log(pointsOfInterest);
     return (
       <View>
         {this.state.region ? (

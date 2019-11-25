@@ -7,15 +7,15 @@ export default class FollowersRow extends Component {
       <View style={styles.container}>
         <View>
           <Text style={styles.txt}>Following</Text>
-          <Text style={styles.number}>354</Text>
+          <Text style={styles.number}>0</Text>
         </View>
         <View>
           <Text style={styles.txt}>Followers</Text>
-          <Text style={styles.number}>504</Text>
+          <Text style={styles.number}>0</Text>
         </View>
         <View>
           <Text style={styles.txt}>Games</Text>
-          <Text style={styles.number}>321</Text>
+          <Text style={styles.number}>0</Text>
         </View>
       </View>
     );

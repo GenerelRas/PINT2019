@@ -1,14 +1,41 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Platform } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Platform,
+  Button,
+  AsyncStorage,
+  TextInput
+} from "react-native";
 import { Icon } from "react-native-elements";
 import PropTypes from "prop-types";
-
+import Profile from "./Profile";
 import Input from "../components/Input.js";
 import KnapHvid from "../components/KnapHvid.js";
+import ProfileHeader from "../components/ProfileHeader";
+import { NavigationActions } from "react-navigation";
 
 export class SignUp extends Component {
   static navigationOptions = {
     headerShown: false
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      age: "",
+      sport: ""
+    };
+  }
+
+  login = async () => {
+    const { navigate } = this.props.navigation;
+    let name = this.state.name;
+    let age = this.state.age;
+    let sport = this.state.sport;
+    navigate("Profile", { name, age, sport });
   };
 
   render() {
@@ -16,26 +43,51 @@ export class SignUp extends Component {
       <View style={styles.container}>
         <View style={styles.signUp}>
           <Text style={styles.text}>Sign Up</Text>
-          <View style={styles.line}>
+          {/* <View style={styles.line}>
             <View style={styles.lineWhite}></View>
             <View style={styles.lineGrey}></View>
-          </View>
-        </View>
-        <View style={styles.name}>
-          <Input text="Full name" autoCap="words" keyType="default" />
+          </View> */}
         </View>
         <View style={styles.city}>
-          <Input text="City" autoCap="words" keyType="default" />
+          <Input
+            text="Sports"
+            autoCap="words"
+            keyType="default"
+            handleChange={text => {
+              this.setState({ sport: text });
+            }}
+          />
+        </View>
+        <View style={styles.city}>
+          <Input
+            text="Age"
+            autoCap="words"
+            keyType="default"
+            handleChange={text => {
+              this.setState({ age: text });
+            }}
+          />
+        </View>
+        <View style={styles.name}>
+          <Input
+            text="Username"
+            autoCap="words"
+            keyType="default"
+            correct={false}
+            handleChange={text => {
+              this.setState({ name: text });
+            }}
+          />
         </View>
         <View style={styles.email}>
-          <Input text="Email address" keyType="email-address" />
+          <Input text="Password" keyType="default" password={true} />
         </View>
         <View style={styles.email}>
-          <Input text="Phone number" keyType="phone-pad" />
+          <Input text="Confirm password" keyType="default" password={true} />
         </View>
 
         <View style={styles.next}>
-          <KnapHvid title="Next" />
+          <KnapHvid title="Sign up" onBtnPress={() => this.login()} />
         </View>
       </View>
     );

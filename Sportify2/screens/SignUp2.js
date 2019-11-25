@@ -35,7 +35,10 @@ export class SignUp2 extends Component {
         </View>
 
         <View style={styles.next}>
-          <KnapHvid title="Next" />
+          <KnapHvid
+            title="Next"
+            onBtnPress={() => this.props.navigation.navigate("SignUp3")}
+          />
         </View>
       </View>
     );

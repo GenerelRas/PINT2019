@@ -11,11 +11,23 @@ export default class Input extends React.Component {
     left: PropTypes.number,
     autoCap: PropTypes.string,
     password: PropTypes.bool,
-    keyType: PropTypes.string
+    keyType: PropTypes.string,
+    handleChange: PropTypes.func,
+    correct: PropTypes.bool
   };
 
   render() {
-    const { text, icon, top, left, autoCap, password, keyType } = this.props;
+    const {
+      text,
+      icon,
+      top,
+      left,
+      autoCap,
+      password,
+      keyType,
+      handleChange,
+      correct
+    } = this.props;
 
     return (
       <View style={styles.container} top={top} left={left}>
@@ -28,6 +40,8 @@ export default class Input extends React.Component {
           color="#fff"
           secureTextEntry={password}
           keyboardType={keyType}
+          onChangeText={handleChange}
+          autoCorrect={correct}
         />
       </View>
     );

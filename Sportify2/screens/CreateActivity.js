@@ -10,12 +10,16 @@ export class CreateActivity extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: ""
+      title: "",
+      email: "",
+      phone: ""
     };
   }
 
-  handleChangeInput = text => {
+  handleChangeInput = (text, mail, num) => {
     this.setState({ title: text });
+    this.setState({ email: mail });
+    this.setState({ phone: num });
   };
 
   static navigationOptions = {
@@ -27,11 +31,13 @@ export class CreateActivity extends Component {
   };
 
   render() {
-    const { title } = this.state;
+    const { title, email, phone } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.top}>
-          <Text style={styles.header}>Create Activity</Text>
+          <Text style={styles.header}>{title}</Text>
+          <Text style={styles.header}>{email}</Text>
+          <Text style={styles.header}>{phone}</Text>
         </View>
         <View style={styles.sport}>
           <TextInput
@@ -49,12 +55,16 @@ export class CreateActivity extends Component {
             style={styles.input}
             placeholderTextColor={"#fff6"}
             color="#fff"
+            onChangeText={this.handleChangeInput}
+            value={email}
           />
           <TextInput
             placeholder="Time"
             style={styles.input2}
             placeholderTextColor={"#fff6"}
             color="#fff"
+            onChangeText={this.handleChangeInput}
+            value={phone}
           />
         </View>
         <View style={styles.skillPlayers}>

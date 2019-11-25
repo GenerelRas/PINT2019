@@ -19,7 +19,7 @@ export class Home extends Component {
   static navigationOptions = {
     headerTitle: () => <LogoTitle />,
     headerRight: () => <ProfilePic url="https://picsum.photos/200" />,
-    headerBackTitle: "Home",
+    headerLeft: null,
     headerRightContainerStyle: {
       paddingRight: 10
     }

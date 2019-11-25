@@ -2,22 +2,16 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { Icon } from "react-native-elements";
 import PropTypes from "prop-types";
-
+import SignUp from "../screens/SignUp";
 import FollowersRow from "./FollowersRow";
+import { withNavigation } from "react-navigation";
 
-export default class ProfileHeader extends React.Component {
-  static propTypes = {
-    name: PropTypes.string
-  };
+class ProfileHeader extends React.Component {
+  static propTypes = {};
   render() {
-    const { name } = this.props;
+    let name = this.props.navigation.getParam("name");
     return (
       <View style={styles.container}>
-        <View style={styles.icon}>
-          {/* <TouchableOpacity>
-            <Icon name="settings" size={35} color="#fff" />
-          </TouchableOpacity> */}
-        </View>
         <View style={styles.author}>
           <Image
             source={{ uri: "https://picsum.photos/200" }}
@@ -32,6 +26,8 @@ export default class ProfileHeader extends React.Component {
     );
   }
 }
+
+export default withNavigation(ProfileHeader);
 
 const styles = StyleSheet.create({
   container: {

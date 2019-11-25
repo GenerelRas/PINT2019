@@ -33,7 +33,10 @@ export class SignUp3 extends Component {
         </View>
 
         <View style={styles.next}>
-          <KnapHvid title="Create account" />
+          <KnapHvid
+            title="Create account"
+            onBtnPress={() => this.props.navigation.navigate("Home")}
+          />
         </View>
       </View>
     );
