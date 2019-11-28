@@ -15,6 +15,7 @@ import Input from "../components/Input.js";
 import KnapHvid from "../components/KnapHvid.js";
 import ProfileHeader from "../components/ProfileHeader";
 import { NavigationActions } from "react-navigation";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export class SignUp extends Component {
   static navigationOptions = {
@@ -43,10 +44,19 @@ export class SignUp extends Component {
       <View style={styles.container}>
         <View style={styles.signUp}>
           <Text style={styles.text}>Sign Up</Text>
-          {/* <View style={styles.line}>
-            <View style={styles.lineWhite}></View>
-            <View style={styles.lineGrey}></View>
-          </View> */}
+          <View style={styles.cam}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("CameraPage")}
+            >
+              <Icon
+                type="material-community"
+                name="camera"
+                color="#fff"
+                size={45}
+              />
+            </TouchableOpacity>
+            <Text style={styles.picText}>Add profile picture</Text>
+          </View>
         </View>
         <View style={styles.city}>
           <Input
@@ -113,6 +123,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#232d3a"
+  },
+  cam: {
+    // height: 50,
+    // width: 50,
+    // borderRadius: 25,
+    backgroundColor: "#232d3a",
+    marginTop: 50
+  },
+  picText: {
+    color: "#fff",
+    fontSize: 14,
+    textAlign: "center"
   },
   text: {
     fontSize: 40,

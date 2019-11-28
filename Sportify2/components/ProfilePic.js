@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 export default class ProfilePic extends Component {
   static propTypes = {
-    url: PropTypes.string.isRequired,
+    url: PropTypes.array,
     onPicPress: PropTypes.func
   };
   render() {
@@ -12,7 +12,7 @@ export default class ProfilePic extends Component {
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={onPicPress}>
-          <Image style={styles.image} source={{ uri: url }} />
+          <Image style={styles.image} source={url} />
         </TouchableOpacity>
       </View>
     );

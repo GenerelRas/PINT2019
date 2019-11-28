@@ -32,6 +32,7 @@ export class CreateActivity extends Component {
 
   render() {
     const { title, email, phone } = this.state;
+
     return (
       <View style={styles.container}>
         <View style={styles.top}>

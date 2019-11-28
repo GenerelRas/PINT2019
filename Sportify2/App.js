@@ -9,6 +9,8 @@ import Profile from "./screens/Profile";
 import Home from "./screens/Home";
 import CreateActivity from "./screens/CreateActivity";
 import SignUp from "./screens/SignUp";
+import CameraPage from "./screens/camera.page";
+import "./src/global";
 
 import { createAppContainer } from "react-navigation";
 
@@ -27,9 +29,6 @@ const AppNavigator = createStackNavigator(
     CreateActivity: {
       screen: CreateActivity
     },
-    // SignUpNavigator: {
-    //   screen: SignUpNavigator
-    // },
     Home: {
       screen: Home,
       navigationOptions: {
@@ -41,6 +40,9 @@ const AppNavigator = createStackNavigator(
     },
     SignUp: {
       screen: SignUp
+    },
+    CameraPage: {
+      screen: CameraPage
     }
   },
   {

@@ -50,15 +50,12 @@ export class Profile extends Component {
     let ageSent = age + " years";
     let sports = ["Soccer, ", "Tennis, ", "Running "];
     let sportsSent = "Playing " + sport;
-
+    console.log(global.pictures);
     return (
       <View style={styles.container}>
         <View style={styles.profileHeader}>
           <View style={styles.author}>
-            <Image
-              source={{ uri: "https://picsum.photos/200" }}
-              style={styles.profileImage}
-            />
+            <Image source={global.pictures[0]} style={styles.profileImage} />
             <View>
               <Text style={styles.authorName}>{name}</Text>
               <Text style={styles.age}>{ageSent}</Text>
