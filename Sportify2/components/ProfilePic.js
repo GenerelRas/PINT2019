@@ -7,6 +7,7 @@ export default class ProfilePic extends Component {
     url: PropTypes.array,
     onPicPress: PropTypes.func
   };
+
   render() {
     const { url, onPicPress } = this.props;
     return (

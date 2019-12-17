@@ -43,19 +43,10 @@ function orderDistanceArray(currentCoords) {
       return 1;
     }
     return 0;
-  }); // Standard in-place sorting of array in order of ascending distance to current location
-  // See documentation on sort with compare function here:
-  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+  });
 }
 
 function initalizePointsOfInterest() {
-  // // Let throw four interesting places in here. Called when starting the show
-  /* Get coordinates by cut&paste from Google Maps :
-  Rundtårn : 55.681547,12.575751
-  Rosenborg:  55.685970,12.577291
-  Regensen: 55.681133,12.575229
-  Børsen: 55.676038,12.584014
-*/
   addPointOfInterest(55.68597, 12.577291, 100, "Soccer");
   addPointOfInterest(55.681547, 12.575751201, 100, "Basketball");
   addPointOfInterest(55.676038, 12.584014, 100, "Run");
@@ -156,6 +147,7 @@ export default class MapComp extends Component {
       }
     }
     console.log(pointsOfInterest);
+
     return (
       <View>
         {this.state.region ? (

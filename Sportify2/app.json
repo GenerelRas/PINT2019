@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Sportify",
-    "slug": "Sportify2",
+    "slug": "sportify",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -25,6 +25,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }

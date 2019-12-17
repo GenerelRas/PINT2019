@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TextInput, Image } from "react-native";
 import { Icon } from "react-native-elements";
-import MapComp from "../components/MapComp";
+import MapComp2 from "../components/MapComp2";
 import Input from "../components/Input";
 import Map from "../components/Map";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -85,7 +85,7 @@ export class CreateActivity extends Component {
         <View style={styles.smallMap}>
           <Text style={styles.touch}>Touch to enhance</Text>
           <View style={styles.footer}>
-            <MapComp height={200} width={300} />
+            <MapComp2 height={200} width={300} />
             <TouchableOpacity
               style={styles.button}
               onpress={() =>

@@ -95,7 +95,6 @@ export class SignUp extends Component {
         <View style={styles.email}>
           <Input text="Confirm password" keyType="default" password={true} />
         </View>
-
         <View style={styles.next}>
           <KnapHvid title="Sign up" onBtnPress={() => this.login()} />
         </View>

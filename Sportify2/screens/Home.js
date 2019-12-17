@@ -13,17 +13,23 @@ import FooterMenu from "../components/FooterMenu";
 import Knap from "../components/Knap";
 import Activity from "../components/Activity";
 import ProfilePic from "../components/ProfilePic";
-import MapComp from "../components/MapComp";
+import MapComp2 from "../components/MapComp2";
 import * as marker from "../JSON/Activities";
+
 export class Home extends Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     headerTitle: () => <LogoTitle />,
-    headerRight: () => <ProfilePic url={global.pictures[0]} />,
+    headerRight: () => (
+      <ProfilePic
+        url={global.pictures[0]}
+        onPicPress={() => navigation.navigate("Profile")}
+      />
+    ),
     headerLeft: null,
     headerRightContainerStyle: {
       paddingRight: 10
     }
-  };
+  });
 
   render() {
     return (
@@ -31,7 +37,7 @@ export class Home extends Component {
         <StatusBar barStyle="light-content" />
 
         <View style={styles.map}>
-          <MapComp height={400} width={410} />
+          <MapComp2 height={400} width={410} />
         </View>
         <View style={styles.activities}>
           <Text>Activities close to you</Text>
